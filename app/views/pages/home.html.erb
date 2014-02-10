@@ -1,5 +1,10 @@
 <div class="jumbotron">
 	<h1>Ehrlich Lab Database</h1>
-	<p><button type="button" class="btn btn-primary btn-sm jumbotron-btn">Sign in</button>
-	<%= link_to "Request access","#", class: "btn btn-primary btn-sm" %> </p>
+	<% if user_signed_in? %>
+		# do something
+	<% else %>
+		<p>	
+			<%= link_to "Request Access", new_user_registration_path, class: "btn btn-primary btn-sm" %> 
+		</p>
+	<% end %>
 </div>
