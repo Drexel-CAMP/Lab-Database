@@ -34,18 +34,16 @@ class PinsController < ApplicationController
 
   def destroy
     @pin.destroy
-    respond_to do |format|
-      format.html { redirect_to pins_url }
-      format.json { head :no_content }
-    end
+    redirect_to pins_url
   end
 
   private
-
+    # Use callbacks to share common setup or constraints between actions.
     def set_pin
       @pin = Pin.find(params[:id])
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
       params.require(:pin).permit(:description)
     end
